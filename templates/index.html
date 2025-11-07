@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{%block head%}
+    <script src="/static/index.js"></script>    
+    
+    <link rel="stylesheet" href="/static/style.css">
+{%endblock%}
+
+{%block body%}
+
+<style>
+    .homeDivContainer{
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .homeDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    #greeter{
+        text-align: center;
+    }
+    
+    /* Mobile-optimized home page form */
+    @media (max-width: 768px) {
+        form {
+            width: 100% !important;
+            max-width: 350px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 15px !important;
+        }
+        
+        .new_room_name {
+            width: 100% !important;
+            padding: 15px 20px !important;
+            border-radius: 25px !important;
+            border: 2px solid #e0e0e0 !important;
+            font-size: 16px !important;
+        }
+        
+        .new_room_name:focus {
+            border-color: rgb(78, 0, 78) !important;
+        }
+        
+        button[type="submit"] {
+            width: 100% !important;
+            padding: 15px !important;
+            background: rgb(78, 0, 78) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 25px !important;
+            font-size: 16px !important;
+            font-weight: 500 !important;
+        }
+        
+        button[type="submit"]:hover {
+            background: rgb(60, 0, 60) !important;
+        }
+    }
+</style>
+
+<main class="homeDivContainer">
+    <div class="homeDiv">
+
+        <div id="greeter">
+            <h2>Hello {{username}}!</h2>
+            Search existing rooms or create a new one .
+        </div>
+        <form action="/create" method="POST">
+            <input type="text" name="roomname" class="form-control new_room_name">
+            <button type="submit" class="form-control">create</button>
+        </form>
+
+        <button class="search">
+            <img src="/static/search-white-18dp.svg" alt="">
+        </button>
+
+        <div class="rooms"></div>
+    </div>
+</main>
+    
+{%endblock%}
+

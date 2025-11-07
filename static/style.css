@@ -1,0 +1,149 @@
+html , body {
+    height: 100%;
+    width: 100%;
+}
+main a{
+    text-decoration: none;
+}
+main .form_group{
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+main .form-control {
+    display: inline-block;
+    width: auto;
+}
+
+main .form-control:focus {
+    border-color: #3b3b3b;
+    box-shadow: 0 0 0 0 #3b3b3b;
+} 
+
+.rooms{
+    display: flex;
+    flex-direction: column;
+}
+.room{
+    display: inline-block;
+    width: auto;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    overflow-wrap: break-word;
+
+    background-color: #3B3B3B;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.roomlinks{
+    margin: auto;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+
+.room:hover , .room:active{
+    color: #3B3B3B;
+    background: #ECECEC;
+    text-decoration: none;
+    border: 1px #3B3B3B solid;
+}
+
+.flash{
+    padding-top: 20px;
+}
+
+.search{
+    background: rgb(78, 0, 78);
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 50%;
+    margin-top: 8px;
+}
+
+/* Mobile-First Responsive Styles */
+@media (max-width: 768px) {
+    /* Home Page Mobile Optimizations */
+    .homeDivContainer {
+        padding: 15px !important;
+        min-height: calc(100vh - 60px) !important;
+    }
+    
+    .homeDiv {
+        gap: 25px !important;
+        width: 100% !important;
+    }
+    
+    /* Better form inputs on mobile */
+    .form-control {
+        width: 100% !important;
+        min-width: 280px !important;
+        padding: 12px 15px !important;
+        font-size: 16px !important; /* Prevents zoom on iOS */
+        margin-bottom: 15px !important;
+    }
+    
+    /* Larger, more accessible buttons */
+    .search {
+        height: 50px !important;
+        width: 50px !important;
+        margin-top: 10px !important;
+    }
+    
+    /* Room cards mobile optimization */
+    .room {
+        width: 90% !important;
+        margin: 10px auto !important;
+        padding: 15px 20px !important;
+        font-size: 16px !important;
+        min-height: 50px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Better touch targets for room links */
+    .roomlinks {
+        width: 100% !important;
+        display: block !important;
+    }
+    
+    /* Mobile typography */
+    #greeter h2 {
+        font-size: 24px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    #greeter {
+        text-align: center !important;
+        padding: 0 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small devices */
+    .homeDivContainer {
+        padding: 10px !important;
+    }
+    
+    .form-control {
+        min-width: 260px !important;
+        padding: 14px 16px !important;
+    }
+    
+    .room {
+        width: 95% !important;
+        padding: 16px !important;
+        font-size: 15px !important;
+    }
+    
+    #greeter h2 {
+        font-size: 22px !important;
+    }
+}

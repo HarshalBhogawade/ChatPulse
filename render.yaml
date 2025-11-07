@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: chatpulse
+    env: python
+    plan: free
+    # Build command - installs dependencies
+    buildCommand: pip install -r requirements.txt
+    # Start command - runs your Flask app
+    startCommand: python application.py
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: PYTHONUNBUFFERED
+        value: 1

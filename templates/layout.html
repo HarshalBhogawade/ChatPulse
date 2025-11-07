@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="ChatPulse">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/chat-black-18dp.svg" />
+    <link rel="apple-touch-icon" href="/static/chat-black-18dp.svg">
+
+    {%block head%}
+    {%endblock%}
+    <title>ChatPulse</title>
+    
+    <style>
+        #userlogout{
+            display: flex;
+            flex-direction: column;
+        }
+        .logout{
+            color: black;
+            text-decoration: none;
+        }
+        .navusername{
+            opacity: 0.5;
+        }
+        .navbar-brand{
+            color:rgb(78, 0, 78) !important;
+        }
+        .navbar{
+            z-index: 1 !important;
+        }
+        .logo{
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 30px;
+        }
+        
+        /* Mobile Navigation Improvements */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 8px 15px !important;
+                min-height: 60px !important;
+            }
+            
+            .navbar-brand {
+                font-size: 20px !important;
+                font-weight: 600 !important;
+            }
+            
+            #userlogout {
+                font-size: 14px !important;
+            }
+            
+            .navusername {
+                font-weight: 500 !important;
+            }
+            
+            .logout {
+                padding: 5px 10px !important;
+                border-radius: 15px !important;
+                background-color: #f8f9fa !important;
+                margin-top: 3px !important;
+                font-size: 13px !important;
+            }
+            
+            .logo {
+                width: 25px !important;
+            }
+            
+            .roomname {
+                font-size: 16px !important;
+                font-weight: 500 !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .navbar-brand {
+                font-size: 18px !important;
+            }
+            
+            .roomname {
+                font-size: 15px !important;
+            }
+            
+            #userlogout {
+                font-size: 13px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    {%if username%}
+        <nav class="navbar navbar-light bg-light" style="border-bottom: 1px #3B3B3B solid">
+            <a href="/" class="navbar-brand home">ChatPulse</a>
+            
+            {%if roomname%}
+            <div class="logo">
+                <span class="roomname">{{roomname}}</span>
+
+                {%if owner == username%}
+                <button class="delete">
+                    <img src="/static/delete_outline-24px.svg" alt="">
+                </button>
+                {%endif%}
+
+            </div>
+            {%else%}
+            <img class="logo" src="/static/chat-black-18dp.svg" alt="">
+            {%endif%}                
+            
+            <div id="userlogout">
+                <span class="navusername">{{username}} </span>
+                <a href="/signin" class="logout">log out</a>
+            </div>
+        </nav>
+    {%else%}
+    <nav class="navbar navbar-light bg-light justify-content-between" style="border-bottom: 1px #3B3B3B solid">
+        <a class="navbar-brand mx-auto">ChatPulse</a>
+    </nav>
+    {%endif%}
+
+
+    {%block body%}
+    
+    {%endblock%}
+</body>
+</html>
